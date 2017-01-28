@@ -4,13 +4,17 @@
   name: "current time",
   description: "display current time",
   keywords: ["time"],
+  link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
   version: "0.0.1",
-  script: function (event) { // event = {body, url, cheerio}
-    const $ = event.cheerio.load(event.body)
-    event.return({
-      title: "Title now",
-      description: $("#clock0").text(),
-      link: "https://time.is",
+  script: function (event) {
+    event.$get(event.url, (error, body)=> {
+      if (error) return event.return(false)
+      const $ = event.cheerio.load(body)
+      event.return({
+        title: "Title now",
+        description: $("#clock0").text(),
+        link: "https://time.is",
+      })
     })
   }
 }
