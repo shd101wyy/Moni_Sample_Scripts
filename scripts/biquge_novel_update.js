@@ -4,6 +4,7 @@
   name: "笔趣阁小说更新追踪",
   description: "用于追踪小说的更新",
   keywords: ["小说", "笔趣阁"],
+  link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
   version: "0.0.1",
   script: function (event) { // event = {body, url, cheerio}
     const match = event.url.match(/^http\:\/\/(m|www)\.biquge\.(tw|com)\/([\d_]+)(\/*)/),

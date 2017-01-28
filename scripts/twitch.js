@@ -1,13 +1,16 @@
 
-  {
-    target_url:/^(https|http)\:\/\/www\.twitch\.tv\/(.+)$/,
-    name: "twitch live status check",
-    description: "check twitch user/channel live status",
-    keywords: ["twitch"],
-    version: "0.0.1",
-    public: false, // set to true if you want to publish this script so others can find it
-    script: function(event) { // event = {body, url, cheerio, $get}
-      const $ = event.cheerio.load(event.body)
+{
+  target_url:/^(https|http)\:\/\/www\.twitch\.tv\/(.+)$/,
+  name: "twitch live status check",
+  description: "check twitch user/channel live status",
+  keywords: ["twitch"],
+  link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
+  version: "0.0.1",
+  public: false, // set to true if you want to publish this script so others can find it
+  script: function(event) { // event = {body, url, cheerio, $get}
+    event.$get(event.url, (error, body)=> {
+      if (error) return event.return(false)
+      const $ = event.cheerio.load(body)
       const title = $('meta[property="og:title"]').attr('content'),
             cover = $('meta[property="og:image"]').attr('content'),
             username = title.split(' ')[0]
@@ -27,5 +30,6 @@
           })
         }
       })
-    }
+    })
   }
+}
