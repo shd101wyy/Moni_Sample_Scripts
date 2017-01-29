@@ -1,6 +1,6 @@
 
 {
-  target_url: /(rss|xml|\.rss|\.xml)$/,
+  target_url: /^(http|https)\:\/\//,
   name: "rss subscriber",
   description: "subscribe",
   keywords: ["rss"],
@@ -14,6 +14,12 @@
         let i = body.indexOf('<title>'),
               j = body.indexOf('</title>')
         const title = body.slice(i + 7, j)
+
+        i = body.indexOf('<title>', j + 8)
+        j = body.indexOf('</title>', i)
+        let newestFeedTitle = ('newest: ' + body.slice(i + ('<title>').length, j)) || ''
+		newestFeedTitle = newestFeedTitle.replace(/\<\!\[CDATA\[(.+)\]\]\>/, (x, a)=> a)
+
 
         i = body.indexOf('<description>')
         j = body.indexOf('</description>')
@@ -33,9 +39,10 @@
         event.return({
           title,
           description: `${description}
-${feedNum} feeds
+${feedNum} rss feeds
+${newestFeedTitle}
 ${newestPubdate}`,
-          link: 'http://rss', // this means this is rss.
+          link: 'http://rss/', // this means this is rss.
           favicon
         })
       })
