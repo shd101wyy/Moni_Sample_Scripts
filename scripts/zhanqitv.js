@@ -19,7 +19,8 @@
         title: title,
       	description: (online ? '直播中' : '不在直播'),
         link: event.url,
-       	media: {cover}
+       	media: {cover},
+        notificationOff: (online ? false : true),
       })
     })
   }

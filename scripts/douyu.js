@@ -11,17 +11,18 @@
       event.$get(event.url, (error, body)=> {
         if (error) return event.return(false)
         const $ = event.cheerio.load(body)
-        let live = true
+        let online = true
         if (body.indexOf('上次直播') >= 0) {
-          live = false
+          online = false
         }
         const title = $('title').text().replace(' - 每个人的直播平台', '')
         const cover = $('#anchor-info .fl img').attr('src')
         event.return({
           title,
-          description: (live? '直播中':'不在直播'),
+          description: (online? '直播中':'不在直播'),
           link: event.url,
-          media: {cover}
+          media: {cover},
+          notificationOff: (online ? false : true),
         })
       })
     }

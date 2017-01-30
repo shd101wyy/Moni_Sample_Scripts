@@ -24,15 +24,15 @@
             cover = hostInfo.avatar,
             name = hostInfo.name
       const title = `${name} panda.tv`
+      const online = (status != '3')
       return event.return ({
         title,
-        description: (status === '3'
-          ? '不在直播'
-          : '直播中')
+        description: (online ? '直播中' : '不在直播'),
         link: event.url,
         media: {
           cover
-        }
+        },
+        notificationOff: (online ? false : true),
       })
     })
   }

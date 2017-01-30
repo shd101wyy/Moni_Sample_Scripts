@@ -19,7 +19,8 @@
         description: (online ? '直播中': '不在直播'),
         link: event.url,
         // favicon: "(optional) favicon? eg: https://github.com/favicon.ico",
-        media: {cover}
+        media: {cover},
+        notificationOff: (online ? false : true),
       })
      })
     }
