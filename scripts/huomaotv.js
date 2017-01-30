@@ -16,7 +16,7 @@
 
             event.return({
         title: title,
-        description: (online ? '在直播': '不在直播'),
+        description: (online ? '直播中': '不在直播'),
         link: event.url,
         // favicon: "(optional) favicon? eg: https://github.com/favicon.ico",
         media: {cover}
