@@ -4,7 +4,7 @@
     name: "stock price alert",
     description: "Check stock price, and alert when necessary.\nFor how to use, please check this [website](https://github.com/shd101wyy/Moni_Sample_Scripts/scripts/stock/stock.md)",
     keywords: ["stock"],
-  	link: "https://github.com/shd101wyy/Moni_Sample_Scripts",
+  	link: "https://github.com/shd101wyy/Moni_Sample_Scripts/scripts/stock/stock.md",
     version: "0.0.2",
     public: true, // set to true if you want to publish this script so others can find it
     script: function(event) { // event = {url, cheerio, $get}
