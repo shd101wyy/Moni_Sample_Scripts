@@ -1,13 +1,13 @@
 
 {
-  target_url:/^(https|http)\:\/\/www\.twitch\.tv\/(.+)$/,
+  target_url: /^(https|http)\:\/\/www\.twitch\.tv\/(.+)$/,
   name: "twitch live status check",
   description: "check twitch user/channel live status",
   keywords: ["twitch"],
-  link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
-  version: "0.0.1",
-  public: false, // set to true if you want to publish this script so others can find it
-  script: function(event) { // event = {body, url, cheerio, $get}
+  link: "https://github.com/shd101wyy/Moni_Sample_Scripts",
+  version: "0.0.2",
+  public: true,
+  script: function (event) { // event = {body, url, cheerio, $get}
     event.$get(event.url, (error, body)=> {
       if (error) return event.return(false)
       const $ = event.cheerio.load(body)
@@ -24,7 +24,7 @@
         } else {
           event.return({
             title: title,
-            description: json.stream ? 'live' : 'offline',
+            description: json.stream ? 'streaming' : 'offline',
             link: event.url,
             media: {cover}
           })
