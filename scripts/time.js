@@ -12,7 +12,7 @@
       if (error) return event.return(false)
       const $ = event.cheerio.load(body)
       event.return({
-        title: "Title now",
+        title: "Time now",
         description: $("#clock0").text(),
         link: "https://time.is",
       })
