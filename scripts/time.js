@@ -5,7 +5,7 @@
   description: "display current time",
   keywords: ["time"],
   link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
-  version: "0.0.1",
+  version: "0.0.2",
   public: true,
   script: function (event) {
     event.$get(event.url, (error, body)=> {
