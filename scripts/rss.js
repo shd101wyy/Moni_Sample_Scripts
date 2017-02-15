@@ -1,11 +1,11 @@
 
 {
-  target_url: /^(http|https)\:\/\//,
+  target_url: "*",
   name: "rss(atom) subscriber",
   description: "subscribe",
   keywords: ["rss", "atom"],
   link: "https://github.com/shd101wyy/Moni_Sample_Scripts",
-  version: "0.0.3",
+  version: "0.0.4",
   public: true,
   script: function (event) { // event = {url, cheerio, $get}
       event.$get({url: event.url, dataType: 'text'}, (error, body)=> {
