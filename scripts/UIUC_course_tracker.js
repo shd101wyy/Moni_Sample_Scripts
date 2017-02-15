@@ -6,6 +6,7 @@
   keywords: ["UIUC", "course"],
   link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
   version: "0.0.1",
+  public: true,
   script: function (event) {
     event.$get(event.url, (error, body)=> {
       if (error) return event.return(false)

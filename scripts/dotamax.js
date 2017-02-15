@@ -6,7 +6,7 @@
     keywords: ["dota", "dota2", "dotamax"],
     link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
     version: "0.0.1",
-    public: false, // set to true if you want to publish this script so others can find it
+    public: true, // set to true if you want to publish this script so others can find it
     script: function(event) { // event = {body, url, cheerio, $get}
       const id = event.url.match(/^(http|https)\:\/\/dotamax\.com\/player\/detail\/(\d+)(\/*)$/)[2]
       event.$get(`http://dotamax.com/player/detail/${id}/`, (error, body)=> {

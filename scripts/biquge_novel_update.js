@@ -6,6 +6,7 @@
   keywords: ["小说", "笔趣阁"],
   link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
   version: "0.0.1",
+  public: true,
   script: function (event) { // event = {body, url, cheerio}
     const match = event.url.match(/^http\:\/\/(m|www)\.biquge\.(tw|com)\/([\d_]+)(\/*)/),
           bookId = match[3],

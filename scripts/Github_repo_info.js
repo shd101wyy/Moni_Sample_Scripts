@@ -6,6 +6,7 @@
   keywords: ["github"],
   link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
   version: "0.0.1",
+  public: true,
   script: function (event) { // you can use: body, cheerio, JSON, Math, String
     event.$get(event.url, (error, body)=> {
       if (error) return event.return(false)

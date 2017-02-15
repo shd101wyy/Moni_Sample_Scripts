@@ -6,7 +6,7 @@
   keywords: ["zhihu"],
   link: "https://github.com/shd101wyy/Moni_Sample_Scripts",
   version: "0.0.1",
-  public: false,
+  public: true,
   script: function (event) { // event = {body, url, cheerio, $get}
     const page = event.url.match(/^(https|http)\:\/\/www\.zhihu\.com\/people\/(.+)\/(activities|answers)(\/*)$/)[3]
     if (page === 'activities') {

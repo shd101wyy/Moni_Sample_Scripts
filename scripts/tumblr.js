@@ -6,6 +6,7 @@
   link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
   keywords: ["tumblr"],
   version: "0.0.1",
+  public: true,
   script: function (event) { // event = {body, url, cheerio, $get}
     const id = event.url.match(/http\:\/\/([^\.]+)\.tumblr\.com/)[1]
     event.$get(`http://${id}.tumblr.com`, (error, body)=> {
