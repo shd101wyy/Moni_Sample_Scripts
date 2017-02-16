@@ -1,14 +1,13 @@
+
 {
   target_url: /^(http|https)\:\/\/((www\.bilibili\.com\/video\/av(\d+))|(space\.bilibili\.com\/(\d+)))|bangumi\.bilibili\.com\/anime\/(\d+)/,
   name: "Bilibili 订阅助手",
   description: "可用于订阅 bilibili 番剧，up主空间视频更新。",
-  keywords: [
-    "bilibili", "up", "up主"
-  ],
-  link: 'https://github.com/shd101wyy/Moni_Sample_Scripts',
-  version: "0.0.1",
-  public: true, // set to true if you want to publish this script so others can find it
-  script: function(event) { // event = {url, cheerio, $get}
+  keywords: ["bilibili", "up", "up主"],
+  link: "https://github.com/shd101wyy/Moni_Sample_Scripts",
+  version: "0.0.2",
+  public: true,
+  script: function (event) { // event = {url, cheerio, $get}
     const http = event.url.match(/^(http|https)\:\/\//)[1]
 
     // space
@@ -51,7 +50,7 @@
               cover = newestEpisode.cover,
               url = newestEpisode.webplay_url,
               updateTime = (new Date(newestEpisode.update_time)),
-              episodeTitle = '第' + newestEpisode.index + '话 ' + newestEpisode.index_title
+              episodeTitle = '第' + newestEpisode.index + '话 ' + (newestEpisode.index_title || '')
 
         const title = bangumiTitle + ' ' + seasonTitle
         const description = `[${episodeTitle}](${url})`
