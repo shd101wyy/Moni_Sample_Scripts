@@ -5,7 +5,7 @@
   description: "subscribe",
   keywords: ["rss", "atom"],
   link: "https://github.com/shd101wyy/Moni_Sample_Scripts",
-  version: "0.0.4",
+  version: "0.0.5",
   public: true,
   script: function (event) { // event = {url, cheerio, $get}
       event.$get({url: event.url, dataType: 'text'}, (error, body)=> {
@@ -20,7 +20,7 @@
 
           i = body.indexOf('<title>', j + 8)
           j = body.indexOf('</title>', i)
-          let newestFeedTitle = ('newest: ' + body.slice(i + ('<title>').length, j)) || ''
+          let newestFeedTitle = (body.slice(i + ('<title>').length, j)) || ''
           newestFeedTitle = newestFeedTitle.replace(/\<\!\[CDATA\[(.+)\]\]\>/, (x, a)=> a)
 
 
@@ -57,7 +57,7 @@
 
           i = body.indexOf('<title', j + 8)
           j = body.indexOf('</title>', i)
-          let newestFeedTitle = ('newest: ' + body.slice(i, j).match(/\<title([^\>]*)\>(.+)$/)[2]) || ''
+          let newestFeedTitle = (body.slice(i, j).match(/\<title([^\>]*)\>(.+)$/)[2]) || ''
           newestFeedTitle = newestFeedTitle.replace(/\<\!\[CDATA\[(.+)\]\]\>/, (x, a)=> a)
 
 
